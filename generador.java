@@ -35,13 +35,7 @@ public class generador {
         if (det == 0) {
             generar(args);
         }
-
-        //imprime la matriz generada en formato de sistema de ecuaciones
-        System.out.println("Sistema de ecuaciones:");
-        System.out.println(matriz[0][0] + "x + " + matriz[0][1] + "y + " + matriz[0][2] + "z = " + matriz[0][3]);
-        System.out.println(matriz[1][0] + "x + " + matriz[1][1] + "y + " + matriz[1][2] + "z = " + matriz[1][3]);
-        System.out.println(matriz[2][0] + "x + " + matriz[2][1] + "y + " + matriz[2][2] + "z = " + matriz[2][3]);
-
+        
         return matriz;
     }
 
