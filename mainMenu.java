@@ -6,6 +6,7 @@ public class mainMenu extends javax.swing.JFrame {
      */
     public mainMenu() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
