@@ -44,4 +44,10 @@ public class generador {
         int det = matriz[0][0] * matriz[1][1] * matriz[2][2] + matriz[0][1] * matriz[1][2] * matriz[2][0] + matriz[0][2] * matriz[1][0] * matriz[2][1] - matriz[0][2] * matriz[1][1] * matriz[2][0] - matriz[0][1] * matriz[1][0] * matriz[2][2] - matriz[0][0] * matriz[1][2] * matriz[2][1];
         return det;
     }
+
+    public static String mostrarSistema (int [][] matriz) {
+        //muestra el sistema de ecuaciones en un string
+        String sistema = matriz[0][0] + "x + " + matriz[0][1] + "y + " + matriz[0][2] + "z = " + matriz[0][3] + "\n" + matriz[1][0] + "x + " + matriz[1][1] + "y + " + matriz[1][2] + "z = " + matriz[1][3] + "\n" + matriz[2][0] + "x + " + matriz[2][1] + "y + " + matriz[2][2] + "z = " + matriz[2][3];
+        return sistema;
+    }
 }
