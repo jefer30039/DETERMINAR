@@ -56,9 +56,9 @@ public class mainMenu extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(470, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -100,6 +100,12 @@ public class mainMenu extends javax.swing.JFrame {
         String sistema = "Sistema de ecuaciones:\n" + matriz[0][0] + "x + " + matriz[0][1] + "y + " + matriz[0][2] + "z = " + matriz[0][3] + "\n" + matriz[1][0] + "x + " + matriz[1][1] + "y + " + matriz[1][2] + "z = " + matriz[1][3] + "\n" + matriz[2][0] + "x + " + matriz[2][1] + "y + " + matriz[2][2] + "z = " + matriz[2][3];
         // Actualiza el textArea con el sistema de ecuaciones
         jTextArea1.setText(sistema);
+
+        // Calcula el determinante de la matriz
+        int det = generador.calcularDeterminante(matriz);
+        // Actualiza el label con el determinante
+        jLabel1.setText("Determinante: " + det);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
