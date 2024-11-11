@@ -8,6 +8,11 @@ public class mainMenu extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
+    
+    int numSistemas = 0;
+    int[][] sistema1 = new int[3][4];
+    int[][] sistema2 = new int[3][4];
+    int[][] sistema3 = new int[3][4];
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -20,12 +25,14 @@ public class mainMenu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jButton1.setText("Generar sistema");
@@ -35,10 +42,8 @@ public class mainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("Determinante:");
-
         jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(10);
         jTextArea1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(1, 1, 1));
@@ -46,32 +51,38 @@ public class mainMenu extends javax.swing.JFrame {
         jTextArea1.setToolTipText("");
         jScrollPane2.setViewportView(jTextArea1);
 
+        jLabel1.setFont(new java.awt.Font("SF UI Display Bd", 0, 48)); // NOI18N
+        jLabel1.setText("Determinar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(477, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(470, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(129, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -95,18 +106,25 @@ public class mainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // Llama a generador
-        int[][] matriz = generador.generar(null);
-        // genera un string con el sistema de ecuaciones
-        String sistema = "Sistema de ecuaciones:\n" + matriz[0][0] + "x + " + matriz[0][1] + "y + " + matriz[0][2] + "z = " + matriz[0][3] + "\n" + matriz[1][0] + "x + " + matriz[1][1] + "y + " + matriz[1][2] + "z = " + matriz[1][3] + "\n" + matriz[2][0] + "x + " + matriz[2][1] + "y + " + matriz[2][2] + "z = " + matriz[2][3];
-        // Actualiza el textArea con el sistema de ecuaciones
-        jTextArea1.setText(sistema);
-
-        // Calcula el determinante de la matriz
-        int det = generador.calcularDeterminante(matriz);
-        // Actualiza el label con el determinante
-        jLabel1.setText("Determinante: " + det);
-        
+        if (numSistemas < 3) {
+            // Llama a generador
+            int[][] matriz = generador.generar(null);
+            numSistemas++;
+            switch (numSistemas) {
+                case 0 -> sistema1 = matriz;
+                case 1 -> sistema2 = matriz;
+                case 2 -> sistema3 = matriz;
+            }
+            // Muestra el sistema de ecuaciones en el textArea sin quitar los anteriores
+            jTextArea1.append("Sistema " + numSistemas + ":\n" + generador.mostrarSistema(matriz) + ":\n" + "Determinante: " + generador.calcularDeterminante(matriz) + "\n\n");
+            // Cambia el texto del botón
+            jButton1.setText("Generar sistema (" + (3 - numSistemas) + ")");
+        }
+        else {
+            // Muestra un aviso de que ya no se pueden generar más sistemas
+            avisos aviso = new avisos("Limite de sistemas alcanzado");
+            aviso.setVisible(true);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
