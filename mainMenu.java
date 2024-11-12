@@ -173,14 +173,21 @@ public class mainMenu extends javax.swing.JFrame {
             aviso.setVisible(true);
         }
         else {
-            if (numSistemas == 1) {
-                avisos aviso = new avisos("Se selecionara automaticamente el sistema generado");
-                aviso.setVisible(true);
-            }
-            else {
-                // Si se generaron 2 o 3 sistemas, se manda a la interfaz de 2 o 3 sistemas
-                avisos aviso = new avisos("Se debera seleccionar un sistema");
-                aviso.setVisible(true);
+            switch (numSistemas) {
+                case 0 -> {
+                    // Si no se generaron sistemas, se manda un aviso
+                    avisos aviso = new avisos("Debe generar al menos un sistema");
+                    aviso.setVisible(true);
+                }
+                case 1 -> {
+                    avisos aviso = new avisos("Se selecionara automaticamente el sistema generado");
+                    aviso.setVisible(true);
+                }
+                default -> {
+                    // Si se generaron 2 o 3 sistemas, se manda a la interfaz de 2 o 3 sistemas
+                    avisos aviso = new avisos("Se debera seleccionar un sistema");
+                    aviso.setVisible(true);
+                }
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
