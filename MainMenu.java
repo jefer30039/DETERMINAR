@@ -1,10 +1,10 @@
 
-public class mainMenu extends javax.swing.JFrame {
+public class MainMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form interfaz
      */
-    public mainMenu() {
+    public MainMenu() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -161,7 +161,7 @@ public class mainMenu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (numSistemas < 3) {
             // Llama a generador
-            int[][] matriz = generador.generar(null);
+            int[][] matriz = Generador.generar(null);
             numSistemas++;
             switch (numSistemas) {
                 case 0 -> sistema1 = matriz;
@@ -169,13 +169,13 @@ public class mainMenu extends javax.swing.JFrame {
                 case 2 -> sistema3 = matriz;
             }
             // Muestra el sistema de ecuaciones en el textArea sin quitar los anteriores
-            jTextArea1.append("Sistema " + numSistemas + ":\n" + generador.mostrarSistema(matriz) + ":\n" + "Determinante: " + generador.calcularDeterminante(matriz) + "\n\n");
+            jTextArea1.append("Sistema " + numSistemas + ":\n" + Generador.mostrarSistema(matriz) + ":\n" + "Determinante: " + Generador.calcularDeterminante(matriz) + "\n\n");
             // Cambia el texto del botón
             jButton1.setText("Generar sistema (" + (3 - numSistemas) + ")");
         }
         else {
             // Muestra un aviso de que ya no se pueden generar más sistemas
-            avisos aviso = new avisos("Limite de sistemas alcanzado");
+            Avisos aviso = new Avisos("Limite de sistemas alcanzado");
             aviso.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -183,24 +183,32 @@ public class mainMenu extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if (numSistemas == 0) {
             // Muestra un aviso de que no se han generado sistemas
-            avisos aviso = new avisos("Debe generar al menos un sistema");
+            Avisos aviso = new Avisos("Debe generar al menos un sistema");
             aviso.setVisible(true);
         }
         else {
             switch (numSistemas) {
                 case 0 -> {
                     // Si no se generaron sistemas, se manda un aviso
-                    avisos aviso = new avisos("Debe generar al menos un sistema");
+                    Avisos aviso = new Avisos("Debe generar al menos un sistema");
                     aviso.setVisible(true);
                 }
                 case 1 -> {
-                    avisos aviso = new avisos("Se selecionara automaticamente el sistema generado");
+                    // Si se genero un sistema
+                    Avisos aviso = new Avisos("Se selecionara automaticamente el sistema generado");
                     aviso.setVisible(true);
                 }
+                case 2 -> {
+                    // Si se generaron 2 sistemas
+                    Eleccion2 eleccion = new Eleccion2(sistema1, sistema2);
+                    eleccion.setVisible(true);
+                    this.dispose();
+                }
                 default -> {
-                    // Si se generaron 2 o 3 sistemas, se manda a la interfaz de 2 o 3 sistemas
-                    avisos aviso = new avisos("Se debera seleccionar un sistema");
-                    aviso.setVisible(true);
+                    // Si se generaron 3 sistemas
+                    Eleccion3 eleccion = new Eleccion3(sistema1, sistema2, sistema3);
+                    eleccion.setVisible(true);
+                    this.dispose();
                 }
             }
         }
@@ -223,20 +231,20 @@ public class mainMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(mainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new mainMenu().setVisible(true);
+                new MainMenu().setVisible(true);
             }
         });
     }

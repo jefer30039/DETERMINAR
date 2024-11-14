@@ -1,4 +1,4 @@
-public class generador {
+public class Generador {
     //genera un sistema de ecuaciones lineales 3x3 no homogeneo, usar numeros enteros entre -10 y 10
     public static int[][] generar(String[] args) {
         int a1 = (int) (Math.random() * 21) - 10;
