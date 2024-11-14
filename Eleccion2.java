@@ -1,10 +1,16 @@
 
 public class Eleccion2 extends javax.swing.JFrame {
 
+    private int[][] matriz1;
+    private int[][] matriz2;
+    private int[][] matrizSeleccionada;
+
     /**
      * Creates new form interfaz
      */
     public Eleccion2(int[][] matriz1, int[][] matriz2) {
+        this.matriz1 = matriz1;
+        this.matriz2 = matriz2;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -92,6 +98,11 @@ public class Eleccion2 extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jRadioButton2.setText("Sistema 2");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jButton3.setText("Continuar");
@@ -125,14 +136,16 @@ public class Eleccion2 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
                         .addComponent(jRadioButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton2)))
-                .addGap(41, 41, 41))
+                        .addComponent(jRadioButton2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,11 +163,14 @@ public class Eleccion2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
+        matrizSeleccionada = matriz1;
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        matrizSeleccionada = matriz2;  
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
