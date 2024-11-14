@@ -164,9 +164,9 @@ public class MainMenu extends javax.swing.JFrame {
             int[][] matriz = Generador.generar(null);
             numSistemas++;
             switch (numSistemas) {
-                case 0 -> sistema1 = matriz;
-                case 1 -> sistema2 = matriz;
-                case 2 -> sistema3 = matriz;
+                case 1 -> sistema1 = matriz;
+                case 2 -> sistema2 = matriz;
+                case 3 -> sistema3 = matriz;
             }
             // Muestra el sistema de ecuaciones en el textArea sin quitar los anteriores
             jTextArea1.append("Sistema " + numSistemas + ":\n" + Generador.mostrarSistema(matriz) + ":\n" + "Determinante: " + Generador.calcularDeterminante(matriz) + "\n\n");
