@@ -203,6 +203,7 @@ public class MainMenu extends javax.swing.JFrame {
                     // Si se genero un sistema arranca el juego con ese sistema
                     Juego juego = new Juego(sistema1);
                     juego.setVisible(true);
+                    this.dispose();
                 }
                 case 2 -> {
                     // Si se generaron 2 sistemas
