@@ -73,12 +73,18 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -93,24 +99,30 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jScrollPane2" min="-2" pref="263" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel2" pref="0" max="32767" attributes="0"/>
-                              <Component id="jLabel1" min="-2" pref="343" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="33" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="251" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="233" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel1" min="-2" pref="343" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" pref="400" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="19" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButton2" min="-2" pref="212" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -124,12 +136,11 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel1" min="-2" pref="72" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel2" pref="469" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <Component id="jLabel2" pref="508" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane2" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton1" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="jButton2" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
@@ -143,7 +154,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="18" style="0"/>
+              <Font name="SF UI Display Med" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Generar sistema (3)"/>
           </Properties>
@@ -166,7 +177,7 @@
                 </Property>
                 <Property name="columns" type="int" value="10"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="SansSerif" size="18" style="0"/>
+                  <Font name="SF UI Display Med" size="19" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="1" green="1" red="1" type="rgb"/>
@@ -191,16 +202,16 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="15" style="0"/>
+              <Font name="SF Pro Display" size="17" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;  &lt;p&gt; - Juego para 3 jugadores, con 5 rondas. &lt;br&gt;   &lt;br&gt; - Puede seleccionar hasta entre 3 sistemas de ecuaciones generados aleatoriamente.&lt;br&gt;&#xa; &lt;br&gt; - En cada turno, un jugador cambia un valor de la matriz.&lt;p&gt;  &#xa;&lt;p&gt; - Si el cambio no altera el determinante o este se repite, el jugador pierde su pr&#xf3;ximo turno. Si el determinante vuelve al valor original, el jugador repite el turno. &lt;p&gt;&#xa; &lt;p&gt;- Puntaje: El puntaje de cada jugador se ajusta seg&#xfa;n el determinante de turno: Determinante positivo: suma el valor absoluto de la diferencia con el original. Determinante negativo: se suma directamente al puntaje.&lt;p&gt;&#xa; &lt;p&gt;- El primer jugador en obtener 21 en el determinante gana.&lt;p&gt; &lt;p&gt;- Al final, el jugador con m&#xe1;s puntos gana; si todos terminan con puntos negativos, el que tenga menos puntos pierde.&lt;p&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;  &lt;p&gt; - Juego para 3 jugadores, con 5 rondas. &lt;br&gt;   &lt;br&gt; - Puede seleccionar hasta entre 3 sistemas de ecuaciones generados aleatoriamente.&lt;br&gt;  &lt;br&gt; - En cada turno, un jugador cambia un valor de la matriz.&lt;p&gt;   &lt;p&gt; - Si el cambio no altera el determinante o este se repite, el jugador pierde su pr&#xf3;ximo turno. Si el determinante vuelve al valor original, el jugador repite el turno. &lt;p&gt;  &lt;p&gt;- Puntaje: El puntaje de cada jugador se ajusta seg&#xfa;n el determinante de turno: Determinante positivo: suma el valor absoluto de la diferencia con el original. Determinante negativo: se suma directamente al puntaje.&lt;p&gt;  &lt;p&gt;- El primer jugador en obtener 21 en el determinante gana.&lt;p&gt; &lt;p&gt;- Al final, el jugador con m&#xe1;s puntos gana; si todos terminan con puntos negativos, el que tenga menos puntos pierde.&lt;p&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="18" style="0"/>
+              <Font name="SF UI Display Med" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Comenzar"/>
           </Properties>
