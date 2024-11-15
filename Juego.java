@@ -2,11 +2,19 @@
 public class Juego extends javax.swing.JFrame {
 
     private int[][] matriz;
+    private int entradaXModificar;
     private int determinanteOriginal;
     private int determinanteActual;
+    private int determinantes[] = new int[15];
     private int ronda;
+    private int turno;
     private int jugadorActual;
-    private int[] puntuaciones;
+    private int  puntJugador1;
+    private int  puntJugador2;
+    private int  puntJugador3;
+    private int  skipJugador1;
+    private int  skipJugador2;
+    private int  skipJugador3;
 
 
     /**
@@ -15,6 +23,12 @@ public class Juego extends javax.swing.JFrame {
     public Juego(int[][] matriz) {
         this.matriz = matriz;
         this.determinanteOriginal = Generador.calcularDeterminante(matriz);
+        this.determinanteActual = determinanteOriginal;
+        this.ronda = 1;
+        this.jugadorActual = 1;
+        this.puntJugador1 = 0;
+        this.puntJugador2 = 0;
+        this.puntJugador3 = 0;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -110,6 +124,11 @@ public class Juego extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRadioButton6);
+        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton6ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButton7);
         jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +145,11 @@ public class Juego extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRadioButton9);
+        jRadioButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton9ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("SF UI Display Med", 0, 36)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -210,17 +234,18 @@ public class Juego extends javax.swing.JFrame {
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -415,41 +440,128 @@ public class Juego extends javax.swing.JFrame {
 
         jLabel1.getAccessibleContext().setAccessibleName("jLabel1");
 
+        actualizarEtiquetas();
+
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void actualizarEtiquetas () {
+        jLabel16.setText("Determinante original: " + determinanteOriginal);
+        jLabel14.setText("Determinante actual: " + determinanteActual);
+        jLabel15.setText("Turno de: Jugador " + jugadorActual);
+        jLabel12.setText("Ronda: " + ronda + "/5");
+        jTextArea1.setText("Puntuaciones:\n\n- Jugador 1: " + puntJugador1 + "\n\n- Jugador 2: " + puntJugador2 + "\n\n- Jugador 3: " + puntJugador3);
+        jLabel2.setText(matriz[0][1]+"");
+        jLabel3.setText(matriz[0][0]+"");
+        jLabel4.setText(matriz[0][2]+"");
+        jLabel5.setText(matriz[1][0]+"");
+        jLabel6.setText(matriz[1][1]+"");
+        jLabel7.setText(matriz[1][2]+"");
+        jLabel8.setText(matriz[2][0]+"");
+        jLabel9.setText(matriz[2][1]+"");
+        jLabel10.setText(matriz[2][2]+"");
+        jTextField2.setText("");
+    }
+
+    private void actualizarPuntajes () {
+        //si el determinante es positivo, se suma el valor absoluto de la diferencia entre el determinante original y el actual
+        if (determinanteActual > 0) {
+            switch (jugadorActual) {
+                case 1 -> puntJugador1 = puntJugador1 + Math.abs(determinanteOriginal - determinanteActual);
+                case 2 -> puntJugador2 = puntJugador2 + Math.abs(determinanteOriginal - determinanteActual);
+                case 3 -> puntJugador3 = puntJugador3 + Math.abs(determinanteOriginal - determinanteActual);
+            }
+        //si el determinante es negativo, se suma directamente el valor del determinante actual
+        } else if (determinanteActual < 0) {
+            switch (jugadorActual) {
+                case 1 -> puntJugador1 = puntJugador1 + determinanteActual;
+                case 2 -> puntJugador2 = puntJugador2 + determinanteActual;
+                case 3 -> puntJugador3 = puntJugador3 + determinanteActual;
+            }
+        }
+
+        actualizarEtiquetas();
+    }
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        entradaXModificar = 1;
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
+        entradaXModificar = 2;
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
+        entradaXModificar = 3;
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        // TODO add your handling code here:
+        entradaXModificar = 4;
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        // TODO add your handling code here:
+        entradaXModificar = 5;
     }//GEN-LAST:event_jRadioButton5ActionPerformed
 
+    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+        entradaXModificar = 6;
+    }//GEN-LAST:event_jRadioButton6ActionPerformed
+
     private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
-        // TODO add your handling code here:
+        entradaXModificar = 7;
     }//GEN-LAST:event_jRadioButton7ActionPerformed
 
     private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
-        // TODO add your handling code here:
+        entradaXModificar = 8;
     }//GEN-LAST:event_jRadioButton8ActionPerformed
 
+    private void jRadioButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton9ActionPerformed
+        entradaXModificar = 9;
+    }//GEN-LAST:event_jRadioButton9ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        if (skipJugador1 == 1) {
+            skipJugador1 = 0;
+            jugadorActual++;
+            actualizarEtiquetas();
+        }else if (skipJugador2 == 1) {
+            skipJugador2 = 0;
+            jugadorActual++;
+            actualizarEtiquetas();
+        }else if (skipJugador3 == 1) {
+            skipJugador3 = 0;
+            jugadorActual = 1;
+            ronda++;
+            actualizarEtiquetas();
+        }
+        int nuevoValor = Integer.parseInt(jTextField2.getText());
+        matriz[(entradaXModificar-1)/3][(entradaXModificar-1)%3] = nuevoValor;
+        determinanteActual = Generador.calcularDeterminante(matriz);
+        //Revisar si el determinante se repite
+        for (int i = 0; i < ronda; i++) {
+            if (determinantes[i] == determinanteActual) {
+                switch (jugadorActual) {
+                    case 1-> skipJugador1 = 1;
+                    case 2-> skipJugador2 = 1;
+                    case 3-> skipJugador3 = 1;
+                }
+                Avisos aviso = new Avisos("Se repitió el determinante, se salta al jugador en la siguiente ronda");
+                aviso.setVisible(true);
+                break;
+            }
+        }
+        actualizarPuntajes();
+        determinantes[ronda-1] = determinanteActual;
+        jugadorActual++;
+        if (jugadorActual == 4) {
+            jugadorActual = 1;
+            ronda++;
+        }
+        actualizarEtiquetas();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
