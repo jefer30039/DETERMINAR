@@ -522,8 +522,8 @@ public class Juego extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        //verifica que haya un valor en el campo de texto y que sea un número
-        if (jTextField2.getText().equals("") || !jTextField2.getText().matches("[0-9]+")) {
+        //verifica que haya un valor en el campo de texto y que sea un número aunque sea negativo
+        if (jTextField2.getText().equals("") || !jTextField2.getText().matches("-?\\d+")) {
             jTextField2.setText("");
             Avisos aviso = new Avisos("Ingrese un valor");
             aviso.setVisible(true);
