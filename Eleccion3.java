@@ -123,6 +123,7 @@ public class Eleccion3 extends javax.swing.JFrame {
         jTextArea2.setForeground(new java.awt.Color(1, 1, 1));
         jTextArea2.setRows(5);
         jTextArea2.setToolTipText("");
+        jTextArea2.setFocusable(false);
         jScrollPane3.setViewportView(jTextArea2);
 
         buttonGroup1.add(jRadioButton3);
