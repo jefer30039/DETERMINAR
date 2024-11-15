@@ -205,6 +205,11 @@ public class Eleccion2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Crea el juego con la matriz seleccionada
+        Juego juego = new Juego(matrizSeleccionada);
+        juego.setVisible(true);
+        //  Cierra la ventana
+        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

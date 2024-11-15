@@ -200,9 +200,9 @@ public class MainMenu extends javax.swing.JFrame {
                     aviso.setVisible(true);
                 }
                 case 1 -> {
-                    // Si se genero un sistema
-                    Avisos aviso = new Avisos("Se selecionara automaticamente el sistema generado");
-                    aviso.setVisible(true);
+                    // Si se genero un sistema arranca el juego con ese sistema
+                    Juego juego = new Juego(sistema1);
+                    juego.setVisible(true);
                 }
                 case 2 -> {
                     // Si se generaron 2 sistemas
