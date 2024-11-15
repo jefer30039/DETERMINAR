@@ -588,12 +588,30 @@ public class Juego extends javax.swing.JFrame {
                 aviso2.setVisible(true);
                 MainMenu menu = new MainMenu();
                 menu.setVisible(true);
+            } else if (puntJugador1 < 0 && puntJugador2 < 0 && puntJugador3 < 0) {
+                //si todos son negativos, se dice que pierde el que tenga el menor puntaje
+                if (puntJugador1 < puntJugador2 && puntJugador1 < puntJugador3) {
+                    Avisos aviso2 = new Avisos("El Jugador 1 ha perdido la partida");
+                    aviso2.setVisible(true);
+                    MainMenu menu = new MainMenu();
+                    menu.setVisible(true);
+                } else if (puntJugador2 < puntJugador1 && puntJugador2 < puntJugador3) {
+                    Avisos aviso2 = new Avisos("El Jugador 2 ha perdido la partida");
+                    aviso2.setVisible(true);
+                    MainMenu menu = new MainMenu();
+                    menu.setVisible(true);
+                } else if (puntJugador3 < puntJugador1 && puntJugador3 < puntJugador2) {
+                    Avisos aviso2 = new Avisos("El Jugador 3 ha perdido la partida");
+                    aviso2.setVisible(true);
+                    MainMenu menu = new MainMenu();
+                    menu.setVisible(true);
+                }
             } else {
-                Avisos aviso2 = new Avisos("Ha habido un empate");
+                //si hay empate entre todos los jugadores
+                Avisos aviso2 = new Avisos("Empate entre los jugadores");
                 aviso2.setVisible(true);
                 MainMenu menu = new MainMenu();
                 menu.setVisible(true);
-                
             }
         }
 
