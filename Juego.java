@@ -462,7 +462,6 @@ public class Juego extends javax.swing.JFrame {
         jLabel8.setText(matriz[2][0]+"");
         jLabel9.setText(matriz[2][1]+"");
         jLabel10.setText(matriz[2][2]+"");
-        jTextField2.setText("");
     }
 
     private void actualizarPuntajes () {
@@ -523,19 +522,19 @@ public class Juego extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if (skipJugador1 == 1) {
-            skipJugador1 = 0;
-            jugadorActual++;
-            actualizarEtiquetas();
-        }else if (skipJugador2 == 1) {
-            skipJugador2 = 0;
-            jugadorActual++;
-            actualizarEtiquetas();
-        }else if (skipJugador3 == 1) {
-            skipJugador3 = 0;
-            jugadorActual = 1;
-            ronda++;
-            actualizarEtiquetas();
+        //verifica que haya un valor en el campo de texto y que sea un número
+        if (jTextField2.getText().equals("") || !jTextField2.getText().matches("[0-9]+")) {
+            jTextField2.setText("");
+            Avisos aviso = new Avisos("Ingrese un valor");
+            aviso.setVisible(true);
+            return;
+        }
+        //verifica que el valor ingresado sea un número entre -10000 y 10000
+        if (Integer.parseInt(jTextField2.getText()) < -10000 || Integer.parseInt(jTextField2.getText()) > 10000) {
+            jTextField2.setText("");
+            Avisos aviso = new Avisos("Ingrese un valor entre -10000 y 10000");
+            aviso.setVisible(true);
+            return;
         }
         int nuevoValor = Integer.parseInt(jTextField2.getText());
         matriz[(entradaXModificar-1)/3][(entradaXModificar-1)%3] = nuevoValor;
@@ -553,14 +552,72 @@ public class Juego extends javax.swing.JFrame {
                 break;
             }
         }
+        if (determinanteActual == 21){
+            Avisos aviso = new Avisos("El determinante es 21. El Jugador " + jugadorActual + " ha ganado la partida");
+            aviso.setVisible(true);
+            //Vuelve al menu principal
+            MainMenu menu = new MainMenu();
+            menu.setVisible(true);
+        }
         actualizarPuntajes();
-        determinantes[ronda-1] = determinanteActual;
+        determinantes[turno] = determinanteActual;
         jugadorActual++;
-        if (jugadorActual == 4) {
+        if (jugadorActual > 3) {
             jugadorActual = 1;
             ronda++;
         }
         actualizarEtiquetas();
+        jTextField2.setText("");
+        if (ronda == 6) {
+            this.dispose();
+            Avisos aviso = new Avisos("Se han completado las 5 rondas. El juego ha terminado");
+            aviso.setVisible(true);
+            //Busca al jugador con mayor puntaje
+            if (puntJugador1 > puntJugador2 && puntJugador1 > puntJugador3) {
+                Avisos aviso2 = new Avisos("El Jugador 1 ha ganado la partida");
+                aviso2.setVisible(true);
+                MainMenu menu = new MainMenu();
+                menu.setVisible(true);
+            } else if (puntJugador2 > puntJugador1 && puntJugador2 > puntJugador3) {
+                Avisos aviso2 = new Avisos("El Jugador 2 ha ganado la partida");
+                aviso2.setVisible(true);
+                MainMenu menu = new MainMenu();
+                menu.setVisible(true);
+            } else if (puntJugador3 > puntJugador1 && puntJugador3 > puntJugador2) {
+                Avisos aviso2 = new Avisos("El Jugador 3 ha ganado la partida");
+                aviso2.setVisible(true);
+                MainMenu menu = new MainMenu();
+                menu.setVisible(true);
+            } else {
+                Avisos aviso2 = new Avisos("Ha habido un empate");
+                aviso2.setVisible(true);
+                MainMenu menu = new MainMenu();
+                menu.setVisible(true);
+                
+            }
+        }
+
+        if (skipJugador1 == 1 && jugadorActual == 1) {
+            Avisos aviso = new Avisos("Se salta al jugador 1");
+            aviso.setVisible(true);
+            skipJugador1 = 0;
+            jugadorActual = 2;
+            actualizarEtiquetas();
+
+        }else if (skipJugador2 == 1 && jugadorActual == 2) {
+            Avisos aviso = new Avisos("Se salta al jugador 2");
+            aviso.setVisible(true);
+            skipJugador2 = 0;
+            jugadorActual = 3;
+            actualizarEtiquetas();
+        }else if (skipJugador3 == 1 && jugadorActual == 3) {
+            Avisos aviso = new Avisos("Se salta al jugador 3");
+            aviso.setVisible(true);
+            skipJugador3 = 0;
+            jugadorActual = 1;
+            ronda++;
+            actualizarEtiquetas();
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
