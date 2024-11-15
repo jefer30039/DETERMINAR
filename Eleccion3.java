@@ -1,6 +1,3 @@
-import java.awt.TextArea;
-
-
 public class Eleccion3 extends javax.swing.JFrame {
 
     private int[][] matriz1;
