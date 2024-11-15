@@ -105,7 +105,7 @@ public class Eleccion3 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jRadioButton1.setFont(new java.awt.Font("SF UI Display Med", 0, 19)); // NOI18N
         jRadioButton1.setText("Sistema 1");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +114,7 @@ public class Eleccion3 extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jRadioButton2.setFont(new java.awt.Font("SF UI Display Med", 0, 19)); // NOI18N
         jRadioButton2.setText("Sistema 2");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,7 +122,7 @@ public class Eleccion3 extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jButton3.setFont(new java.awt.Font("SF UI Display Med", 0, 19)); // NOI18N
         jButton3.setText("Continuar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,20 +130,20 @@ public class Eleccion3 extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel1.setText("<html> <p>Seleccione el sistema con el que desea jugar: (Todos los jugadores deben estar de acuerdo):");
 
         jTextArea2.setEditable(false);
         jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea2.setColumns(10);
-        jTextArea2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jTextArea2.setFont(new java.awt.Font("SF UI Display Med", 0, 19)); // NOI18N
         jTextArea2.setForeground(new java.awt.Color(1, 1, 1));
         jTextArea2.setRows(5);
         jTextArea2.setToolTipText("");
         jScrollPane3.setViewportView(jTextArea2);
 
         buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jRadioButton3.setFont(new java.awt.Font("SF UI Display Med", 0, 19)); // NOI18N
         jRadioButton3.setText("Sistema 3");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,17 +175,18 @@ public class Eleccion3 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addGap(19, 19, 19)
                         .addComponent(jRadioButton1)
                         .addGap(18, 18, 18)
                         .addComponent(jRadioButton2)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3)))
-                .addGap(18, 18, 18)
+                        .addComponent(jRadioButton3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
