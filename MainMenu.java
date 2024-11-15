@@ -87,6 +87,7 @@ public class MainMenu extends javax.swing.JFrame {
         jTextArea1.setForeground(new java.awt.Color(1, 1, 1));
         jTextArea1.setRows(5);
         jTextArea1.setToolTipText("");
+        jTextArea1.setFocusable(false);
         jScrollPane2.setViewportView(jTextArea1);
 
         jLabel1.setFont(new java.awt.Font("SF UI Display Bd", 0, 48)); // NOI18N
