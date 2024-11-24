@@ -566,6 +566,18 @@ public class Juego extends javax.swing.JFrame {
             jugadorActual = 1;
             ronda++;
         }
+        //si el ultimo jugador en jugar obtuvo el determinante original, puede jugar otra vez
+        if (determinanteActual == determinanteOriginal) {
+            jugadorActual--;
+            //quita el determinante actual de la lista de determinantes
+            determinantes[turno] = 0;
+            if (jugadorActual == 0) {
+                jugadorActual = 3;
+                ronda--;
+            }
+            Avisos aviso = new Avisos("El jugador " + jugadorActual + " obtuvo el determinante original, puede jugar otra vez");
+            aviso.setVisible(true);
+        }
         actualizarEtiquetas();
         jTextField2.setText("");
         if (ronda == 6) {
