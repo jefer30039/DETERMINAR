@@ -159,7 +159,7 @@ public class Juego extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("0");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/jeferson/Documents/DETERMINAR/Grid.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("resources/Grid.png")); // NOI18N
         jLabel1.setToolTipText("");
 
         jLabel5.setFont(new java.awt.Font("SF UI Display Med", 0, 36)); // NOI18N
