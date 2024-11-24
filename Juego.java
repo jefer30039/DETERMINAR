@@ -194,7 +194,7 @@ public class Juego extends javax.swing.JFrame {
         jSeparator1.setAlignmentY(1.0F);
         jSeparator1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel11.setFont(Main.SFB.deriveFont(36f));
+        jLabel11.setFont(Main.SFB.deriveFont(1,36f));
         jLabel11.setForeground(new java.awt.Color(51, 0, 102));
         jLabel11.setText("Determinar");
 
@@ -252,7 +252,7 @@ public class Juego extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jButton1.setFont(Main.SFB.deriveFont(22f));
+        jButton1.setFont(Main.SFR.deriveFont(1,22f));
         jButton1.setText("Listo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
