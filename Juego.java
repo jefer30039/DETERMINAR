@@ -89,7 +89,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("SF UI Display Med", 0, 36)); // NOI18N
+        jLabel3.setFont(Main.SFM.deriveFont(36f));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("0");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -151,38 +151,38 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("SF UI Display Med", 0, 36)); // NOI18N
+        jLabel2.setFont(Main.SFM.deriveFont(36f));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("0");
 
-        jLabel4.setFont(new java.awt.Font("SF UI Display Med", 0, 36)); // NOI18N
+        jLabel4.setFont(Main.SFM.deriveFont(36f));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("0");
 
         jLabel1.setIcon(new javax.swing.ImageIcon("resources/Grid.png")); // NOI18N
         jLabel1.setToolTipText("");
 
-        jLabel5.setFont(new java.awt.Font("SF UI Display Med", 0, 36)); // NOI18N
+        jLabel5.setFont(Main.SFM.deriveFont(36f));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("0");
 
-        jLabel6.setFont(new java.awt.Font("SF UI Display Med", 0, 36)); // NOI18N
+        jLabel6.setFont(Main.SFM.deriveFont(36f));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("0");
 
-        jLabel7.setFont(new java.awt.Font("SF UI Display Med", 0, 36)); // NOI18N
+        jLabel7.setFont(Main.SFM.deriveFont(36f));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("0");
 
-        jLabel8.setFont(new java.awt.Font("SF UI Display Med", 0, 36)); // NOI18N
+        jLabel8.setFont(Main.SFM.deriveFont(36f));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("0");
 
-        jLabel9.setFont(new java.awt.Font("SF UI Display Med", 0, 36)); // NOI18N
+        jLabel9.setFont(Main.SFM.deriveFont(36f));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("0");
 
-        jLabel10.setFont(new java.awt.Font("SF UI Display Med", 0, 36)); // NOI18N
+        jLabel10.setFont(Main.SFM.deriveFont(36f));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("0");
 
@@ -194,7 +194,7 @@ public class Juego extends javax.swing.JFrame {
         jSeparator1.setAlignmentY(1.0F);
         jSeparator1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel11.setFont(new java.awt.Font("SF UI Display Bd", 0, 34)); // NOI18N
+        jLabel11.setFont(Main.SFB.deriveFont(36f));
         jLabel11.setForeground(new java.awt.Color(51, 0, 102));
         jLabel11.setText("Determinar");
 
@@ -203,7 +203,7 @@ public class Juego extends javax.swing.JFrame {
         jTextArea1.setEditable(false);
         jTextArea1.setBackground(new java.awt.Color(244, 244, 244));
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("SF UI Display Med", 0, 22)); // NOI18N
+        jTextArea1.setFont(Main.SFM.deriveFont(22f));
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setText("Puntuaciones:\n\n- Jugador 1: 0\n\n- Jugador 2: 0\n\n- Jugador 3: 0");
@@ -214,12 +214,12 @@ public class Juego extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 255, 204));
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        jLabel12.setFont(new java.awt.Font("SF UI Display Med", 0, 22)); // NOI18N
+        jLabel12.setFont(Main.SFB.deriveFont(22f));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Ronda: 1/5");
         jPanel3.add(jLabel12, java.awt.BorderLayout.CENTER);
 
-        jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel13.setFont(Main.SFM.deriveFont(18f));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("<html> <p>1. Selecione la entrada que desea cambiar <p>\n <p> 2. Ingrese el valor y presione listo");
 
@@ -252,7 +252,7 @@ public class Juego extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jButton1.setFont(new java.awt.Font("SF UI Display Med", 0, 22)); // NOI18N
+        jButton1.setFont(Main.SFB.deriveFont(22f));
         jButton1.setText("Listo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,7 +260,7 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.setFont(new java.awt.Font("SF UI Display Med", 0, 22)); // NOI18N
+        jTextField2.setFont(Main.SFM.deriveFont(22f));
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setToolTipText("");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -269,14 +269,14 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("SF UI Display Bd", 0, 24)); // NOI18N
+        jLabel14.setFont(Main.SFB.deriveFont(24f));
         jLabel14.setText("Determinante actual: 0");
 
-        jLabel15.setFont(new java.awt.Font("SF UI Display Bd", 0, 24)); // NOI18N
+        jLabel15.setFont(Main.SFB.deriveFont(24f));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel15.setText("Turno de: Jugador 1");
 
-        jLabel16.setFont(new java.awt.Font("SF UI Display Med", 0, 18)); // NOI18N
+        jLabel16.setFont(Main.SFM.deriveFont(18f));
         jLabel16.setText("Determinante original: 0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

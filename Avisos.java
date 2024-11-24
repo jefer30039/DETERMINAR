@@ -29,11 +29,11 @@ public class Avisos extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("SF UI Display Med", 0, 19)); // NOI18N
+        jLabel1.setFont(Main.SFM.deriveFont(18f)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><center>"+aviso+"</center></html>");
 
-        jButton1.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jButton1.setFont(Main.SFR.deriveFont(19f)); // NOI18N
         jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
