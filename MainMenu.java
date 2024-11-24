@@ -72,7 +72,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setFont(new java.awt.Font("SF UI Display Med", 0, 18)); // NOI18N
+        jButton1.setFont(Main.SFM.deriveFont(18f));
         jButton1.setText("Generar sistema (3)");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,22 +83,22 @@ public class MainMenu extends javax.swing.JFrame {
         jTextArea1.setEditable(false);
         jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(10);
-        jTextArea1.setFont(new java.awt.Font("SF UI Display Med", 0, 19)); // NOI18N
+        jTextArea1.setFont(Main.SFM.deriveFont(19f));
         jTextArea1.setForeground(new java.awt.Color(1, 1, 1));
         jTextArea1.setRows(5);
         jTextArea1.setToolTipText("");
         jTextArea1.setFocusable(false);
         jScrollPane2.setViewportView(jTextArea1);
 
-        jLabel1.setFont(new java.awt.Font("SF UI Display Bd", 0, 48)); // NOI18N
+        jLabel1.setFont(Main.SFB.deriveFont(49f));
         jLabel1.setForeground(new java.awt.Color(51, 0, 102));
         jLabel1.setText("Determinar");
 
-        jLabel2.setFont(new java.awt.Font("SF Pro Display", 0, 17)); // NOI18N
+        jLabel2.setFont(Main.SFM.deriveFont(17f));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("<html>  <p> - Juego para 3 jugadores, con 5 rondas. <br>   <br> - Puede seleccionar hasta entre 3 sistemas de ecuaciones generados aleatoriamente.<br>  <br> - En cada turno, un jugador cambia un valor de la matriz.<p>   <p> - Si el cambio no altera el determinante o este se repite, el jugador pierde su próximo turno. Si el determinante vuelve al valor original, el jugador repite el turno. <p>  <p>- Puntaje: El puntaje de cada jugador se ajusta según el determinante de turno: Determinante positivo: suma el valor absoluto de la diferencia con el original. Determinante negativo: se suma directamente al puntaje.<p>  <p>- El primer jugador en obtener 21 en el determinante gana.<p> <p>- Al final, el jugador con más puntos gana; si todos terminan con puntos negativos, el que tenga menos puntos pierde.<p>");
 
-        jButton2.setFont(new java.awt.Font("SF UI Display Med", 0, 18)); // NOI18N
+        jButton2.setFont(Main.SFM.deriveFont(18f));
         jButton2.setText("Comenzar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
