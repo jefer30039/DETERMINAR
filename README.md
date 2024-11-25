@@ -64,8 +64,3 @@ El primer jugador en alcanzar un determinante igual a 21 gana inmediatamente, in
   javac Main.java
   java Main
 ```
-
-Interacción:
-
-Lea su contenido y presione "Aceptar".
-
