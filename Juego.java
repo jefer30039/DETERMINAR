@@ -194,7 +194,7 @@ public class Juego extends javax.swing.JFrame {
         jSeparator1.setAlignmentY(1.0F);
         jSeparator1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel11.setFont(Main.SFB.deriveFont(1,36f));
+        jLabel11.setFont(Main.SFB.deriveFont(35f));
         jLabel11.setForeground(new java.awt.Color(51, 0, 102));
         jLabel11.setText("Determinar");
 
@@ -214,7 +214,7 @@ public class Juego extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 255, 204));
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        jLabel12.setFont(Main.SFB.deriveFont(22f));
+        jLabel12.setFont(Main.SFM.deriveFont(1,22f));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Ronda: 1/5");
         jPanel3.add(jLabel12, java.awt.BorderLayout.CENTER);

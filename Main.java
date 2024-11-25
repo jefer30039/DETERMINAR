@@ -12,7 +12,7 @@ public class Main {
 
         // Carga las fuentes personalizadas
         SFR = FontLoader.loadFont("resources/SFR.OTF", 12);
-        SFB = FontLoader.loadFont("resources/GB.OTF", 12);
+        SFB = FontLoader.loadFont("resources/ultra.ttf", 12);
         SFM = FontLoader.loadFont("resources/SFM.OTF", 12);
         try {
             // Establece el LookAndFeel nimbus
